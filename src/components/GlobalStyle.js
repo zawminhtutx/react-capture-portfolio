@@ -17,6 +17,7 @@ const GlobalStyle = createGlobalStyle`
         font-size: 1rem;
         cursor: pointer;
         padding: 1rem 2rem;
+        font-family: Inter, sans-serif;
         border: 3px solid #23d997;
         background:transparent;
         color:white;
