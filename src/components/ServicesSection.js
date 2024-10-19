@@ -5,11 +5,21 @@ import diaphragm from "../img/diaphragm.svg";
 import money from "../img/money.svg";
 import teamwork from "../img/teamwork.svg";
 import home2 from "../img/home2.png";
-import { StyledAbout,Description,StyledImage } from "../style";
+import { StyledAbout, Description, StyledImage } from "../style";
 import styled from "styled-components";
+import { useScroll } from "./useScroll";
+import { scrollReveal } from "../animation";
+
+
 const ServicesSection = () => {
+  const [element, controls]= useScroll();
+
   return (
-    <Services>
+    <Services
+      ref={element}
+      variants={scrollReveal}
+      initial="hidden"
+      animate={controls}>
       <Description>
         <h2>
           High <span>quality</span> services
@@ -52,32 +62,34 @@ const ServicesSection = () => {
   );
 };
 const Services = styled(StyledAbout)`
-  h2{
+  h2 {
     padding-bottom: 5rem;
   }
-  p{
-    width:70%;
+  p {
+    width: 70%;
     padding: 2rem 0rem 4rem 0rem;
   }
-`
+  
+`;
 const Cards = styled.div`
-  display:  flex;
+  display: flex;
   flex-wrap: wrap;
-
-`
+  @media (max-width: 1080px) {
+    justify-content: center; 
+  }
+`;
 const Card = styled.div`
   flex-basis: 10rem;
   padding-left: 1rem;
-  .icon{
+  .icon {
     display: flex;
     align-items: center;
-    h3{
+    h3 {
       margin-left: 0.5rem;
       background: white;
       color: black;
-      padding:1rem;
+      padding: 1rem;
     }
   }
-  
-`
+`;
 export default ServicesSection;

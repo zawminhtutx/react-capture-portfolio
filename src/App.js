@@ -12,12 +12,14 @@ import { Routes, Route, useLocation } from "react-router-dom";
 import MovieDetail from "./components/MovieDetail";
 //animation
 import { AnimatePresence } from "framer-motion";
+import ScrollTop from "./components/ScollTop";
 
 function App() {
   const location = useLocation();
   return (
     <>
       <GlobalStyle />
+      <ScrollTop />
       <Nav />
       <AnimatePresence mode="waite ">
         <Routes location={location} key={location.pathname}>
